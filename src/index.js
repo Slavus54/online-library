@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ApolloClient from 'apollo-boost'
+import {ApolloProvider} from '@apollo/react-hooks'
+
+const client = new ApolloClient({
+  uri: "https://online-free-library-app.herokuapp.com/graphql"
+})
 
 ReactDOM.render(
   <React.StrictMode>
+    <ApolloProvider client={client}>
     <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
